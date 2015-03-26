@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">Template</ui:insert></title>
+	<link rel="stylesheet" type="text/css" href="resources/css/menu.css"/> 
+</h:head>
+
+<h:body>
+	<p:layout style="margin: 10px;" fullPage="true">
+
+		<p:layoutUnit position="north">
+			<div id="header">
+				<ui:insert name="header">
+					<center>
+						<h:form>
+							<h:commandLink action="index">
+								<h:graphicImage library="img" name="header.jpg" />
+							</h:commandLink>
+						</h:form>
+					</center>
+				</ui:insert>
+			</div>
+		<ui:include src="menu_topo.xhtml" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="0">
+			<ui:include src="footer.xhtml" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center" size="50">
+			
+			<ui:insert name="content">
+    			Content area.  See comments below this line in the source.
+				</ui:insert>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="east" size="250" header="Coisas"
+			resizable="true" closable="false" collapsible="true" effect="drop">
+			<ui:insert name="content-left">
+
+				<p:panel header="Calendário">
+					<center>
+						<div style="margin: 10px">
+							<p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="server" />
+						</div>
+						<h:outputScript name="calendar.js" library="js" target="head" />
+						<p:calendar mode="inline" id="inlineCal" style="margin:0 auto;"
+							locale="pt" />
+					</center>
+				</p:panel>
+			</ui:insert>
+		</p:layoutUnit>
+
+
+	</p:layout>
+
+</h:body>
+
+</html>

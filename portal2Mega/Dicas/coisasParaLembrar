@@ -1,0 +1,9 @@
+no xhtml
+mostrar sessão
+	${nomeDoAtributo} 
+	#{sessionScope.nomeAtributo}
+	#{param['id']}
+	#{sessionScope["paramName"]}
+	
+	<h:outputText value="#{param['id']}" />
+	

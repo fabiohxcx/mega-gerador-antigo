@@ -1,0 +1,29 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Conferir Apostas</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Conferir Apostas">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Concurso: " for="concurso" />
+					<p:inputText id="concurso" value="#{bTOCadAposta.concurso}" maxlength="4" />
+
+					<p:commandButton value="Conferir"
+						action="#{coCadAposta.doConferir}" icon="ui-icon-disk"
+						ajax="false" />
+					<p:commandButton value="Limpar" action="#{coCadAposta.doLimpar}"
+						icon="ui-icon-trash" ajax="false" />
+				</h:panelGrid>
+			</h:form>
+			
+			<h:outputText escape="false" value="#{bTOCadAposta.conferirResutado}" />
+			
+		</p:panel>
+	</ui:define>
+</ui:composition>

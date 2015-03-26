@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form id="form">
+		<p:growl id="messages" />
+
+		<p:menubar style="font-size: 13px;margin: 10px 0px" autoDisplay="false">
+			<!-- Menu Sorteio -->
+			<p:submenu label="Sorteios" icon="ui-icon-grip-dotted-vertical">
+				<p:menuitem value="Resultados" url="resultados.xhtml" icon="ui-icon-clipboard" />
+				<p:menuitem value="Cadastrar Sorteio" url="cadastrar_sorteio.xhtml" icon="ui-icon-document-b" />
+				<p:menuitem value="Estatísticas" url="estatisticas.xhtml" icon="ui-icon-signal-diag" />
+			</p:submenu>
+			<!-- Menu Minhas Apostas -->
+			<p:submenu label="Minhas Apostas" icon="ui-icon-grip-dotted-vertical">
+				<p:menuitem value="Cadastrar Aposta" url="cadastrar_aposta.xhtml" icon="ui-icon-document-b" />
+				<p:menuitem value="Conferir Apostas" url="conferir_apostas.xhtml" icon="ui-icon-check" />
+				<p:menuitem value="Listar Apostas" url="listar_apostas.xhtml" icon="ui-icon-script" />
+			</p:submenu>
+			<!-- Menu Gerador -->
+			<p:submenu label="Gerador" icon="ui-icon-refresh">
+				<p:menuitem value="Gerar Aposta" url="gerador_combinacao.xhtml" icon="ui-icon-shuffle" />
+				<p:menuitem value="Criar Combinação (10n) " url="cria_combinacao_10.xhtml" icon="ui-icon-calculator" />
+			</p:submenu>			
+			<!-- Menu Importação -->
+			<p:submenu label="Importação" icon="ui-icon-arrowthickstop-1-s">
+				<p:menuitem value="Importar Todos os jogos (.txt)" url="importacao_txt.xhtml" icon="ui-icon-arrowreturn-1-s" />
+			</p:submenu>
+
+			<f:facet name="options">
+				<p:inputText style="margin-right:10px" />
+				<p:commandButton value="Sair" icon="ui-icon-extlink" action="#{coLogin.doLogoff}" ajax="false"/>
+			</f:facet>
+		</p:menubar>
+
+	</h:form>
+</ui:composition>

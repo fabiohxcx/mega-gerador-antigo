@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<h:outputStylesheet name="bootstrap.min.css" library="css" />
+	<h:outputStylesheet name="signin.css" library="css" />
+</h:head>
+<h:body>
+	<h:form id="login" styleClass="form-signin">
+
+		<h:inputText id="email_id" styleClass="form-control" required="true"
+			requiredMessage="Digite seu e-mail" />
+
+		<h:inputSecret styleClass="form-control" />
+
+		<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+			value="Entrar" />
+	</h:form>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<h:outputScript name="bootstrap.min.js" library="js" target="head" />
+</h:body>
+</html>

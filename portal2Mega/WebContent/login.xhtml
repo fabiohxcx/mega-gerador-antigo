@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Login</title>
+</h:head>
+<h:body>
+	<h:form>
+		<center>
+			<p:panel header="Bem Vindo" style="width: 350px;font-size: 13px">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="2">
+						<h:outputLabel value="E-mail:" />
+						<h:panelGroup>
+							<h:inputText id="email" value="#{bTOLogin.email}" size="30" />
+							<p:watermark for="email" value="exemplo@exemplo.com" />
+						</h:panelGroup>
+						<h:outputLabel value="Senha:" />
+						<h:panelGroup>
+							<h:inputSecret id="senha" value="#{bTOLogin.senha}" size="30" ></h:inputSecret>
+							<p:watermark for="senha" value="senha" />
+						</h:panelGroup>
+						<p:commandButton type="submit" value="Entrar" action="#{coLogin.doLogar}" ajax="false" />
+					</h:panelGrid>
+				</h:form>
+				 <p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true" closable="true" /> 
+			</p:panel>
+			<div>
+				
+			</div>
+		</center>
+	</h:form>
+</h:body>
+
+</html>

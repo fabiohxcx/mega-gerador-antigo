@@ -1,0 +1,29 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Criar Combinação com 10 números</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Criar Combinação com 10 números">
+			<h:form>
+				<center>
+					<h:panelGrid columns="2">
+						<p:commandButton value="Gerar" icon="ui-icon-refresh" ajax="false" />
+
+						<p:commandButton value="Limpar" icon="ui-icon-trash" ajax="false" />
+					</h:panelGrid>
+				</center>
+
+			</h:form>
+			
+			<center>
+			<h:outputLabel value="Dezenas: " for="dezenas" />
+			<p:inputMask id="dezenas" value="" mask="99-99-99-99-99-99-99-99-99-99" size="28" />
+			</center>
+		</p:panel>
+	</ui:define>
+</ui:composition>

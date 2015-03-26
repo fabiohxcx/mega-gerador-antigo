@@ -1,0 +1,51 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Resultados</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Resultados">
+			<h:form>
+			<center>
+				<p:commandButton value="Exibir" action="#{coResultados.doExibir}" icon="ui-icon-clipboard" ajax="false" />
+
+				<br />
+				<br />
+				
+					<p:dataTable var="sorteio" value="#{varbTOResultados}"
+						paginator="true" rows="10"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="10,20,50,100" style="width:90%"
+						sortBy="concurso" sortOrder="descending">
+						
+						<p:column headerText="Concurso" sortBy="concurso"
+							filterBy="concurso" filterMatchMode="contains">
+							<h:outputText value="#{sorteio.concurso}" />
+						</p:column>
+						<p:column headerText="Data" sortBy="data" filterBy="data"
+							filterMatchMode="contains">
+							<h:outputText value="#{sorteio.data}" />
+						</p:column>
+						<p:column headerText="Dezenas" sortBy="sequencia"
+							filterBy="sequencia" filterMatchMode="contains">
+							<h:outputText value="#{sorteio.sequencia}" />
+						</p:column>
+						
+						<p:column style="width: 4%">
+							<p:commandButton icon="ui-icon-search" title="Ver"/>
+						</p:column>
+
+					</p:dataTable>
+				</center>
+				
+				
+			</h:form>
+		</p:panel>
+	</ui:define>
+
+
+</ui:composition>

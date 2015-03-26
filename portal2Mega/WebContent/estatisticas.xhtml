@@ -1,0 +1,28 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Estatísticas</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Dezenas mais sorteadas">
+			<center>
+				<p:barChart id="horizontal" value="#{bTOEstatisticas.categoryModel}" stacked="true"
+					legendPosition="ne" legendRows="6" style="height:800px"
+					title="Dezenas mais sorteadas (Gráfico de Barras Horizontal)"
+					orientation="horizontal" min="0" max="200" barMargin="2" />
+
+				<p:pieChart id="estatistiva" value="#{bTOEstatisticas.pieModel}" 
+					legendRows="10" showDataLabels="true"
+					dataFormat="value" legendPosition="w"
+					title="Dezenas mais sorteadas" style="width:900px;height:400px" />
+
+			</center>
+		</p:panel>
+	</ui:define>
+
+
+</ui:composition>

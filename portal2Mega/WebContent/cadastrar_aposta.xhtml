@@ -1,0 +1,36 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Cadastrar Apostas</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Cadastrar Apostas">
+			<h:form > 
+
+			 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Para o concurso: " for="concurso" />
+				<p:inputText id="concurso" value="#{bTOCadAposta.concurso}" maxlength="4" />
+				
+				<h:outputLabel value="Data: " for="data" />
+				<p:inputMask id="data" value="#{bTOCadAposta.data}" mask="99/99/9999"/>
+				
+				<h:outputLabel value="Dezenas: " for="dezenas" />
+				<p:inputMask id="dezenas" value="#{bTOCadAposta.sequencia}" mask="99-99-99-99-99-99" />	
+				
+			</h:panelGrid>
+			
+			<p:commandButton value="Cadastrar" action="#{coCadAposta.doCadastrar}" icon="ui-icon-disk" ajax="false"  />
+				<p:commandButton value="Limpar" action="#{coCadAposta.doLimpar}"
+					icon="ui-icon-trash" ajax="false" />
+			</h:form>	
+		</p:panel>
+	</ui:define>
+
+
+</ui:composition>

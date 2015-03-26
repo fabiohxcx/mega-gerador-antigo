@@ -1,0 +1,55 @@
+<ui:composition template="/WEB-INF/templates/template_default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Listar Apostas</ui:define>
+
+	<ui:define name="content">
+		<p:panel header="Listar Apostas">
+		<!-- <h:inputHidden value="#{coCadAposta.doExibirApostas}"  /> -->
+			<center>
+				<h:form>
+				<p:commandButton value="Exibir" action="#{coCadAposta.doExibirApostas}" icon="ui-icon-clipboard" ajax="false" />
+
+					<p:dataTable var="aposta" value="#{sessionScope.varbTOApostas}" paginator="true"
+						rows="10"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="10,20,50,100" style="width:90%"
+						sortBy="concurso" sortOrder="descending">
+
+						<p:column headerText="No concurso" sortBy="concurso"
+							filterBy="concurso" filterMatchMode="contains">
+							<h:outputText value="#{aposta.concurso}" />
+						</p:column>
+
+						<p:column headerText="Data" sortBy="data" filterBy="data"
+							filterMatchMode="contains">
+							<h:outputText value="#{aposta.data}" />
+						</p:column>
+
+
+						<p:column headerText="Dezenas" sortBy="dezenas" filterBy="dezenas"
+							filterMatchMode="contains">
+							<h:outputText value="#{aposta.sequencia}" />
+						</p:column>
+
+						<p:column style="width: 4%" headerText="Alterar">
+							<p:commandButton icon="ui-icon-pencil" title="Alterar"
+								action="index" />
+						</p:column>
+
+						<p:column style="width: 4%" headerText="Excluir">
+							<p:commandButton icon="ui-icon-close" title="Excluir" action="#{coCadAposta.doExcluir}" />
+							<f:param id="aposta" name="aposta" value="#{aposta}" />
+						</p:column>
+
+					</p:dataTable>
+
+  				</h:form>
+			</center>
+		</p:panel>
+	</ui:define>
+</ui:composition>
